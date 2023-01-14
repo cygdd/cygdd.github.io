@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>寒假pwn第一周</title>
+    <link href="/2023/01/14/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%80%E5%91%A8/"/>
+    <url>/2023/01/14/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%80%E5%91%A8/</url>
+    
+    <content type="html"><![CDATA[<p>怎么说，对pwn我完全是个小白啥都不懂，目前是先看着wp做的，知识学习慢慢学吧</p><h1 id="1-test-your-nc"><a href="#1-test-your-nc" class="headerlink" title="1.test_your_nc"></a>1.test_your_nc</h1><p>这是buuctf上的入门题，Linux中nc命令使用</p><p>根据题目提示测试我们的nc，格式为 nc 服务器端口，连接靶场，执行ls命令发现flag文件用cat flag进行查看得到flag</p><p><img src="/./../imgs/$%7Bfiilename%7D/Image.png"></p><h1 id="2-get-shell"><a href="#2-get-shell" class="headerlink" title="2.get_shell"></a>2.get_shell</h1><p>这是攻防世界里的入门题</p><p>nc连接，ls命令查看发现flag文件，然后cat flag得到flag</p><p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(2).png"></p><h1 id="3-hello-pwn"><a href="#3-hello-pwn" class="headerlink" title="3.hello_pwn"></a>3.hello_pwn</h1><p>1.nc连接，ida打开文件f5反汇编后分析代码，</p><p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(3).png"></p><p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(4).png"></p><p>输入aaaaaaun后满足代码获取flag</p><p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(5).png"></p><p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(6).png"></p><p>这个我是看了一篇大神的wp分析，好多知识都没接触过</p><p><a href="https://www.cnblogs.com/aninock/p/15491818.html">https://www.cnblogs.com/aninock/p/15491818.html</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>test_your_nc</category>
+      
+      <category>get_shell</category>
+      
+      <category>hello_pwn</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>nc命令</tag>
+      
+      <tag>ida</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>寒假web第一周</title>
     <link href="/2023/01/14/%E5%AF%92%E5%81%87web%E7%AC%AC%E4%B8%80%E5%91%A8/"/>
     <url>/2023/01/14/%E5%AF%92%E5%81%87web%E7%AC%AC%E4%B8%80%E5%91%A8/</url>

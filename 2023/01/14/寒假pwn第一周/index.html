@@ -16,32 +16,30 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.rce 1 1.代码审计题，第一个if条件首先intval函数弱比较用get方式传入int&#x3D;1000abc 2.第二个if条件用post传入target进行命令执行  3.查看目录里有ffffllllaaaagggg文件用cat读取的得到flag  4.函数知识 （isset函数函数用于检测变量是否已设置并且非 NULL。 intval函数弱比较，附上一个知识链接 https:&#x2F;&#x2F;b">
+    <meta name="description" content="怎么说，对pwn我完全是个小白啥都不懂，目前是先看着wp做的，知识学习慢慢学吧 1.test_your_nc这是buuctf上的入门题，Linux中nc命令使用 根据题目提示测试我们的nc，格式为 nc 服务器端口，连接靶场，执行ls命令发现flag文件用cat flag进行查看得到flag  2.get_shell这是攻防世界里的入门题 nc连接，ls命令查看发现flag文件，然后cat fla">
 <meta property="og:type" content="article">
-<meta property="og:title" content="寒假web第一周">
-<meta property="og:url" content="http://example.com/2023/01/14/%E5%AF%92%E5%81%87web%E7%AC%AC%E4%B8%80%E5%91%A8/index.html">
+<meta property="og:title" content="寒假pwn第一周">
+<meta property="og:url" content="http://example.com/2023/01/14/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%80%E5%91%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.rce 1 1.代码审计题，第一个if条件首先intval函数弱比较用get方式传入int&#x3D;1000abc 2.第二个if条件用post传入target进行命令执行  3.查看目录里有ffffllllaaaagggg文件用cat读取的得到flag  4.函数知识 （isset函数函数用于检测变量是否已设置并且非 NULL。 intval函数弱比较，附上一个知识链接 https:&#x2F;&#x2F;b">
+<meta property="og:description" content="怎么说，对pwn我完全是个小白啥都不懂，目前是先看着wp做的，知识学习慢慢学吧 1.test_your_nc这是buuctf上的入门题，Linux中nc命令使用 根据题目提示测试我们的nc，格式为 nc 服务器端口，连接靶场，执行ls命令发现flag文件用cat flag进行查看得到flag  2.get_shell这是攻防世界里的入门题 nc连接，ls命令查看发现flag文件，然后cat fla">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image1-1673688779485-1.jpg">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image2-1673689031250-3.jpg">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image3.jpg">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image4.jpg">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image5.jpg">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image6.jpg">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image7-1673701043014-1.jpg">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image8.png">
-<meta property="article:published_time" content="2023-01-14T05:43:20.000Z">
-<meta property="article:modified_time" content="2023-01-14T12:57:35.881Z">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(2).png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(3).png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(4).png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(5).png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(6).png">
+<meta property="article:published_time" content="2023-01-14T13:44:50.000Z">
+<meta property="article:modified_time" content="2023-01-14T14:10:53.272Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="命令执行">
-<meta property="article:tag" content="无数字字母绕过">
+<meta property="article:tag" content="nc命令">
+<meta property="article:tag" content="ida">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image1-1673688779485-1.jpg">
+<meta name="twitter:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image.png">
   
   
   
-  <title>寒假web第一周 - Hexo</title>
+  <title>寒假pwn第一周 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -207,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="寒假web第一周"></span>
+            <span id="subtitle" data-typed-text="寒假pwn第一周"></span>
           
         </div>
 
@@ -218,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-14 13:43" pubdate>
-          2023年1月14日 下午
+        <time datetime="2023-01-14 21:44" pubdate>
+          2023年1月14日 晚上
         </time>
       </span>
     
@@ -230,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          965 字
+          327 字
         
       </span>
     
@@ -241,7 +239,7 @@
         
         
         
-          9 分钟
+          3 分钟
         
       </span>
     
@@ -279,37 +277,26 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">寒假web第一周</h1>
+            <h1 style="display: none">寒假pwn第一周</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="1-rce-1"><a href="#1-rce-1" class="headerlink" title="1.rce 1"></a>1.rce 1</h1><p><img src="/./../imgs/$%7Bfiilename%7D/Image1-1673688779485-1.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>1.代码审计题，第一个if条件首先intval函数弱比较用get方式传入int&#x3D;1000abc</p>
-<p>2.第二个if条件用post传入target进行命令执行</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image2-1673689031250-3.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>3.查看目录里有ffffllllaaaagggg文件用cat读取的得到flag</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image3.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>4.函数知识</p>
-<p>（isset函数函数用于检测变量是否已设置并且非 NULL。</p>
-<p>intval函数弱比较，附上一个知识链接</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Reme_mber/article/details/124781330?ops_request_misc=%7B%22request_id%22:%22167359150716800186533228%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=167359150716800186533228&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-1-124781330-null-null.142">https://blog.csdn.net/Reme_mber/article/details/124781330?ops_request_misc=%7B%22request%5Fid%22%3A%22167359150716800186533228%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=167359150716800186533228&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-1-124781330-null-null.142</a></p>
-<p>）</p>
-<h1 id="2-rce-2"><a href="#2-rce-2" class="headerlink" title="2.rce 2"></a>2.rce 2</h1><p><img src="/./../imgs/$%7Bfiilename%7D/Image4.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>1.代码审计发现是无字母数字的绕过，利用异或方法构造payload（这里的构造我目前不太理解，参看的百度一篇文章<a target="_blank" rel="noopener" href="https://www.yisu.com/zixun/498376.html">https://www.yisu.com/zixun/498376.html</a> ）</p>
-<p> 先进行phpinfo测试，</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image5.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>2.成功后采用命令执行然后发现index.php，</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image6.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>3.访问目录未发现，进行上级查询直至发现ffffllllaaaagggg文件，<img src="/./../imgs/$%7Bfiilename%7D/Image7-1673701043014-1.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>cat读取得到flag</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image8.png" srcset="/img/loading.gif" lazyload></p>
-<p>4.函数知识</p>
-<p>（preg_match（）简单说是查找， 它的值将是 0 次（不匹配）或 1 次，这里附上一个具体知识</p>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-preg_match.html">https://www.runoob.com/php/php-preg_match.html</a></p>
-<p>highlight_file用来输出文件内容</p>
-<p>die() 函数输出一条消息，并退出当前脚本。</p>
-<p>intval函数弱相等eval() 函数十分强大 —— 将字符串当成 有效的表达式来求值 并 返回计算结果作用：eval() 函数会把字符串的引号去掉，然后把中间的内容当作python的代码，然后eval() 函数会执行这一段代码，并且返回执行的结果。）</p>
+                <p>怎么说，对pwn我完全是个小白啥都不懂，目前是先看着wp做的，知识学习慢慢学吧</p>
+<h1 id="1-test-your-nc"><a href="#1-test-your-nc" class="headerlink" title="1.test_your_nc"></a>1.test_your_nc</h1><p>这是buuctf上的入门题，Linux中nc命令使用</p>
+<p>根据题目提示测试我们的nc，格式为 nc 服务器端口，连接靶场，执行ls命令发现flag文件用cat flag进行查看得到flag</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/Image.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="2-get-shell"><a href="#2-get-shell" class="headerlink" title="2.get_shell"></a>2.get_shell</h1><p>这是攻防世界里的入门题</p>
+<p>nc连接，ls命令查看发现flag文件，然后cat flag得到flag</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(2).png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="3-hello-pwn"><a href="#3-hello-pwn" class="headerlink" title="3.hello_pwn"></a>3.hello_pwn</h1><p>1.nc连接，ida打开文件f5反汇编后分析代码，</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(3).png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(4).png" srcset="/img/loading.gif" lazyload></p>
+<p>输入aaaaaaun后满足代码获取flag</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(5).png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(6).png" srcset="/img/loading.gif" lazyload></p>
+<p>这个我是看了一篇大神的wp分析，好多知识都没接触过</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/aninock/p/15491818.html">https://www.cnblogs.com/aninock/p/15491818.html</a></p>
 
                 
               </div>
@@ -328,13 +315,20 @@
     
       <span class="category-chain">
         
-  <a href="/categories/rce-1/" class="category-chain-item">rce 1</a>
+  <a href="/categories/test-your-nc/" class="category-chain-item">test_your_nc</a>
   
   
     <span>></span>
     
-  <a href="/categories/rce-1/rce-2/" class="category-chain-item">rce 2</a>
+  <a href="/categories/test-your-nc/get-shell/" class="category-chain-item">get_shell</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/test-your-nc/get-shell/hello-pwn/" class="category-chain-item">hello_pwn</a>
+  
+  
+
   
 
   
@@ -350,9 +344,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/">#命令执行</a>
+        <a href="/tags/nc%E5%91%BD%E4%BB%A4/">#nc命令</a>
       
-        <a href="/tags/%E6%97%A0%E6%95%B0%E5%AD%97%E5%AD%97%E6%AF%8D%E7%BB%95%E8%BF%87/">#无数字字母绕过</a>
+        <a href="/tags/ida/">#ida</a>
       
     </div>
   
@@ -364,8 +358,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>寒假web第一周</div>
-      <div>http://example.com/2023/01/14/寒假web第一周/</div>
+      <div>寒假pwn第一周</div>
+      <div>http://example.com/2023/01/14/寒假pwn第一周/</div>
     </div>
     <div class="license-meta">
       
@@ -409,18 +403,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/01/14/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%80%E5%91%A8/" title="寒假pwn第一周">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">寒假pwn第一周</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/01/10/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2023/01/14/%E5%AF%92%E5%81%87web%E7%AC%AC%E4%B8%80%E5%91%A8/" title="寒假web第一周">
+                        <span class="hidden-mobile">寒假web第一周</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
