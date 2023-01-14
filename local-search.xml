@@ -8,7 +8,7 @@
     <link href="/2023/01/14/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%B5%8B%E8%AF%95/"/>
     <url>/2023/01/14/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%B5%8B%E8%AF%95/</url>
     
-    <content type="html"><![CDATA[<p><img src="/./imgs/$%7Bfiilename%7D/Image1.jpg"></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="/./imgs/$%7Bfiilename%7D/Image1.jpg"></p><p><img src="/./imgs/$%7Bfiilename%7D/Image2.jpg"></p>]]></content>
     
     
     
@@ -21,7 +21,7 @@
     <link href="/2023/01/14/%E5%AF%92%E5%81%87web%E7%AC%AC%E4%B8%80%E5%91%A8/"/>
     <url>/2023/01/14/%E5%AF%92%E5%81%87web%E7%AC%AC%E4%B8%80%E5%91%A8/</url>
     
-    <content type="html"><![CDATA[<h1 id="1-rce-1"><a href="#1-rce-1" class="headerlink" title="1.rce 1"></a>1.rce 1</h1><p>1.代码审计题，第一个if条件首先intval函数弱比较用get方式传入int&#x3D;1000abc</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="1-rce-1"><a href="#1-rce-1" class="headerlink" title="1.rce 1"></a>1.rce 1</h1><p>1.代码审计题，第一个if条件首先intval函数弱比较用get方式传入int&#x3D;1000abc</p><p>2.第二个if条件用post传入target进行命令执行</p><p>3.查看目录里有ffffllllaaaagggg文件用cat读取的得到flag</p><p>4.函数知识</p><p>（这里的isset函数函数用于检测变量是否已设置并且非 NULL。）</p><h1 id="2-rce-2"><a href="#2-rce-2" class="headerlink" title="2.rce 2"></a>2.rce 2</h1><p>1.代码审计发现是无字母数字的绕过，利用异或方法构造payload（这里的构造我目前不太理解，参看的百度一篇文章<a href="https://www.yisu.com/zixun/498376.html">https://www.yisu.com/zixun/498376.html</a> ）</p><p> 先进行phpinfo测试，</p><p>2.成功后采用命令执行然后发现index.php，</p><p>3.访问目录未发现，进行上级查询直至发现ffffllllaaaagggg文件，cat读取得到flag</p><p>4.函数知识</p><p>（preg_match（）简单说是查找， 它的值将是 0 次（不匹配）或 1 次，这里附上一个具体知识</p><p><a href="https://www.runoob.com/php/php-preg_match.html">https://www.runoob.com/php/php-preg_match.html</a></p><p>highlight_file用来输出文件内容</p><p>die() 函数输出一条消息，并退出当前脚本。</p><p>intval函数弱相等eval() 函数十分强大 —— 将字符串当成 有效的表达式来求值 并 返回计算结果作用：eval() 函数会把字符串的引号去掉，然后把中间的内容当作python的代码，然后eval() 函数会执行这一段代码，并且返回执行的结果。）</p>]]></content>
     
     
     <categories>
