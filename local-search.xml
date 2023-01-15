@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>攻防世界web</title>
+    <link href="/2023/01/15/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb/"/>
+    <url>/2023/01/15/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-view-source"><a href="#1-view-source" class="headerlink" title="1.view_source"></a>1.view_source</h1><p>右键好像不管用了。</p><p>使用F12或ctrl+u或在url前添加view-source:查看</p><h1 id="2、robots"><a href="#2、robots" class="headerlink" title="2、robots"></a>2、robots</h1><p>打开网站，手动进入&#x2F;robots.txt，提示f1ag_1s_h3re.php，然后再打开&#x2F;f1ag_1s_h3re.php即可找到flag。</p><p>robots协议是网站跟爬虫间的协议 ，用简单直接的txt格式文本方式告诉对应的爬虫被允许的权限，一般站点根目录下都会放置robots.txt，爬虫爬取前会检查这个文件。</p><h1 id="3、backup"><a href="#3、backup" class="headerlink" title="3、backup"></a>3、backup</h1><p>打开发现：你知道index.php的备份文件名吗？&#x2F;index.php.bak即可下载带有flag的php文件</p><p>常见的备份文件后缀名为.bak</p><p><a href="https://blog.csdn.net/akdjfhx/article/details/126454090">https://blog.csdn.net/akdjfhx/article/details/126454090</a></p><h1 id="4、cookie"><a href="#4、cookie" class="headerlink" title="4、cookie"></a>4、cookie</h1><p>1.进入&#x2F;cookie.php然后<a href="http://tnblog.net/18328907536/article/details/6567">http://tnblog.net/18328907536/article/details/6567</a></p><p><a href="http://www.360doc.com/content/22/0611/11/4703094_1035569390.shtml">http://www.360doc.com/content/22/0611/11/4703094_1035569390.shtml</a></p><p>2.用burp查看</p><p>cookie 存储在客户端： cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。因此，服务端脚本就可以读、写存储在客户端的cookie的值。</p><h1 id="5-disabled-button"><a href="#5-disabled-button" class="headerlink" title="5.disabled_button"></a>5.disabled_button</h1>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>攻防世界</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>寒假pwn第一周</title>
     <link href="/2023/01/14/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%80%E5%91%A8/"/>
     <url>/2023/01/14/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%80%E5%91%A8/</url>

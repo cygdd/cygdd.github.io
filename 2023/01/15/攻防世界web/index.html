@@ -16,30 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="怎么说，对pwn我完全是个小白啥都不懂，目前是先看着wp做的，知识学习慢慢学吧 1.test_your_nc这是buuctf上的入门题，Linux中nc命令使用 根据题目提示测试我们的nc，格式为 nc 服务器端口，连接靶场，执行ls命令发现flag文件用cat flag进行查看得到flag  2.get_shell这是攻防世界里的入门题 nc连接，ls命令查看发现flag文件，然后cat fla">
+    <meta name="description" content="1.view_source右键好像不管用了。 使用F12或ctrl+u或在url前添加view-source:查看 2、robots打开网站，手动进入&#x2F;robots.txt，提示f1ag_1s_h3re.php，然后再打开&#x2F;f1ag_1s_h3re.php即可找到flag。 robots协议是网站跟爬虫间的协议 ，用简单直接的txt格式文本方式告诉对应的爬虫被允许的权限，一般站">
 <meta property="og:type" content="article">
-<meta property="og:title" content="寒假pwn第一周">
-<meta property="og:url" content="http://example.com/2023/01/14/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%80%E5%91%A8/index.html">
+<meta property="og:title" content="攻防世界web">
+<meta property="og:url" content="http://example.com/2023/01/15/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="怎么说，对pwn我完全是个小白啥都不懂，目前是先看着wp做的，知识学习慢慢学吧 1.test_your_nc这是buuctf上的入门题，Linux中nc命令使用 根据题目提示测试我们的nc，格式为 nc 服务器端口，连接靶场，执行ls命令发现flag文件用cat flag进行查看得到flag  2.get_shell这是攻防世界里的入门题 nc连接，ls命令查看发现flag文件，然后cat fla">
+<meta property="og:description" content="1.view_source右键好像不管用了。 使用F12或ctrl+u或在url前添加view-source:查看 2、robots打开网站，手动进入&#x2F;robots.txt，提示f1ag_1s_h3re.php，然后再打开&#x2F;f1ag_1s_h3re.php即可找到flag。 robots协议是网站跟爬虫间的协议 ，用简单直接的txt格式文本方式告诉对应的爬虫被允许的权限，一般站">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(2).png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(3).png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(4).png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(5).png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(6).png">
-<meta property="article:published_time" content="2023-01-14T13:44:50.000Z">
-<meta property="article:modified_time" content="2023-01-14T14:10:53.272Z">
+<meta property="article:published_time" content="2023-01-15T07:24:01.000Z">
+<meta property="article:modified_time" content="2023-01-15T08:05:45.868Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="nc命令">
-<meta property="article:tag" content="ida">
+<meta property="article:tag" content="攻防世界">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image.png">
   
   
   
-  <title>寒假pwn第一周 - Hexo</title>
+  <title>攻防世界web - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="寒假pwn第一周"></span>
+            <span id="subtitle" data-typed-text="攻防世界web"></span>
           
         </div>
 
@@ -233,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-14 21:44" pubdate>
-          2023年1月14日 晚上
+        <time datetime="2023-01-15 15:24" pubdate>
+          2023年1月15日 下午
         </time>
       </span>
     
@@ -246,7 +238,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          327字
+          644字
         
       </span>
     
@@ -258,7 +250,7 @@
         
         
           <!-- compatible with older versions-->
-          3分钟
+          6分钟
         
       </span>
     
@@ -305,12 +297,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">寒假pwn第一周</h1>
+            <h1 style="display: none">攻防世界web</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年1月14日 晚上
+                    本文最后更新于：2023年1月15日 下午
                   
                 
               </p>
@@ -318,22 +310,18 @@
             
               <div class="markdown-body">
                 
-                <p>怎么说，对pwn我完全是个小白啥都不懂，目前是先看着wp做的，知识学习慢慢学吧</p>
-<h1 id="1-test-your-nc"><a href="#1-test-your-nc" class="headerlink" title="1.test_your_nc"></a>1.test_your_nc</h1><p>这是buuctf上的入门题，Linux中nc命令使用</p>
-<p>根据题目提示测试我们的nc，格式为 nc 服务器端口，连接靶场，执行ls命令发现flag文件用cat flag进行查看得到flag</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="2-get-shell"><a href="#2-get-shell" class="headerlink" title="2.get_shell"></a>2.get_shell</h1><p>这是攻防世界里的入门题</p>
-<p>nc连接，ls命令查看发现flag文件，然后cat flag得到flag</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(2).png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="3-hello-pwn"><a href="#3-hello-pwn" class="headerlink" title="3.hello_pwn"></a>3.hello_pwn</h1><p>1.nc连接，ida打开文件f5反汇编后分析代码，</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(3).png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(4).png" srcset="/img/loading.gif" lazyload></p>
-<p>输入aaaaaaun后满足代码获取flag</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(5).png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(6).png" srcset="/img/loading.gif" lazyload></p>
-<p>这个我是看了一篇大神的wp分析，好多知识都没接触过</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/aninock/p/15491818.html">https://www.cnblogs.com/aninock/p/15491818.html</a></p>
-
+                <h1 id="1-view-source"><a href="#1-view-source" class="headerlink" title="1.view_source"></a>1.view_source</h1><p>右键好像不管用了。</p>
+<p>使用F12或ctrl+u或在url前添加view-source:查看</p>
+<h1 id="2、robots"><a href="#2、robots" class="headerlink" title="2、robots"></a>2、robots</h1><p>打开网站，手动进入&#x2F;robots.txt，提示f1ag_1s_h3re.php，然后再打开&#x2F;f1ag_1s_h3re.php即可找到flag。</p>
+<p>robots协议是网站跟爬虫间的协议 ，用简单直接的txt格式文本方式告诉对应的爬虫被允许的权限，一般站点根目录下都会放置robots.txt，爬虫爬取前会检查这个文件。</p>
+<h1 id="3、backup"><a href="#3、backup" class="headerlink" title="3、backup"></a>3、backup</h1><p>打开发现：你知道index.php的备份文件名吗？&#x2F;index.php.bak即可下载带有flag的php文件</p>
+<p>常见的备份文件后缀名为.bak</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/akdjfhx/article/details/126454090">https://blog.csdn.net/akdjfhx/article/details/126454090</a></p>
+<h1 id="4、cookie"><a href="#4、cookie" class="headerlink" title="4、cookie"></a>4、cookie</h1><p>1.进入&#x2F;cookie.php然后<a target="_blank" rel="noopener" href="http://tnblog.net/18328907536/article/details/6567">http://tnblog.net/18328907536/article/details/6567</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.360doc.com/content/22/0611/11/4703094_1035569390.shtml">http://www.360doc.com/content/22/0611/11/4703094_1035569390.shtml</a></p>
+<p>2.用burp查看</p>
+<p>cookie 存储在客户端： cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。因此，服务端脚本就可以读、写存储在客户端的cookie的值。</p>
+<h1 id="5-disabled-button"><a href="#5-disabled-button" class="headerlink" title="5.disabled_button"></a>5.disabled_button</h1>
                 
               </div>
             
@@ -341,48 +329,11 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/test-your-nc/" class="category-chain-item">test_your_nc</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/test-your-nc/get-shell/" class="category-chain-item">get_shell</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/test-your-nc/get-shell/hello-pwn/" class="category-chain-item">hello_pwn</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/nc%E5%91%BD%E4%BB%A4/">#nc命令</a>
-      
-        <a href="/tags/ida/">#ida</a>
+        <a href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/">#攻防世界</a>
       
     </div>
   
@@ -394,8 +345,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>寒假pwn第一周</div>
-      <div>http://example.com/2023/01/14/寒假pwn第一周/</div>
+      <div>攻防世界web</div>
+      <div>http://example.com/2023/01/15/攻防世界web/</div>
     </div>
     <div class="license-meta">
       
@@ -407,13 +358,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月14日</div>
+          <div>2023年1月15日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年1月14日</div>
+          <div>2023年1月15日</div>
         </div>
       
       
@@ -444,18 +395,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/01/15/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb/" title="攻防世界web">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">攻防世界web</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/01/14/%E5%AF%92%E5%81%87web%E7%AC%AC%E4%B8%80%E5%91%A8/" title="寒假web第一周">
-                        <span class="hidden-mobile">寒假web第一周</span>
+                      <a href="/2023/01/14/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%80%E5%91%A8/" title="寒假pwn第一周">
+                        <span class="hidden-mobile">寒假pwn第一周</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
