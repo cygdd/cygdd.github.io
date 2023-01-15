@@ -23,11 +23,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.view_source右键好像不管用了。 使用F12或ctrl+u或在url前添加view-source:查看 2、robots打开网站，手动进入&#x2F;robots.txt，提示f1ag_1s_h3re.php，然后再打开&#x2F;f1ag_1s_h3re.php即可找到flag。 robots协议是网站跟爬虫间的协议 ，用简单直接的txt格式文本方式告诉对应的爬虫被允许的权限，一般站">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image-1673779494364-1.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(2)-1673779632384-3.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(3)-1673782947137-5.png">
 <meta property="article:published_time" content="2023-01-15T07:24:01.000Z">
-<meta property="article:modified_time" content="2023-01-15T08:05:45.868Z">
+<meta property="article:modified_time" content="2023-01-15T12:20:03.606Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="攻防世界">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image-1673779494364-1.png">
   
   
   
@@ -238,7 +242,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          644字
+          1.1k字
         
       </span>
     
@@ -250,7 +254,7 @@
         
         
           <!-- compatible with older versions-->
-          6分钟
+          10分钟
         
       </span>
     
@@ -302,7 +306,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年1月15日 下午
+                    本文最后更新于：2023年1月15日 晚上
                   
                 
               </p>
@@ -317,11 +321,27 @@
 <h1 id="3、backup"><a href="#3、backup" class="headerlink" title="3、backup"></a>3、backup</h1><p>打开发现：你知道index.php的备份文件名吗？&#x2F;index.php.bak即可下载带有flag的php文件</p>
 <p>常见的备份文件后缀名为.bak</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/akdjfhx/article/details/126454090">https://blog.csdn.net/akdjfhx/article/details/126454090</a></p>
-<h1 id="4、cookie"><a href="#4、cookie" class="headerlink" title="4、cookie"></a>4、cookie</h1><p>1.进入&#x2F;cookie.php然后<a target="_blank" rel="noopener" href="http://tnblog.net/18328907536/article/details/6567">http://tnblog.net/18328907536/article/details/6567</a></p>
+<h1 id="4、cookie"><a href="#4、cookie" class="headerlink" title="4、cookie"></a>4、cookie</h1><p>1.进入&#x2F;cookie.php然后查看http回响</p>
+<p><a target="_blank" rel="noopener" href="http://tnblog.net/18328907536/article/details/6567">http://tnblog.net/18328907536/article/details/6567</a></p>
 <p><a target="_blank" rel="noopener" href="http://www.360doc.com/content/22/0611/11/4703094_1035569390.shtml">http://www.360doc.com/content/22/0611/11/4703094_1035569390.shtml</a></p>
 <p>2.用burp查看</p>
 <p>cookie 存储在客户端： cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。因此，服务端脚本就可以读、写存储在客户端的cookie的值。</p>
-<h1 id="5-disabled-button"><a href="#5-disabled-button" class="headerlink" title="5.disabled_button"></a>5.disabled_button</h1>
+<h1 id="5-disabled-button"><a href="#5-disabled-button" class="headerlink" title="5.disabled_button"></a>5.disabled_button</h1><p>查看源代码，发现disable使flag不能点击然后右键edit HTML删除点击箭头然后flag可以点击</p>
+<h1 id="6-get-post"><a href="#6-get-post" class="headerlink" title="6.get_post"></a>6.get_post</h1><p>get和post方式提交变量</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/Image-1673779494364-1.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="7-weak-auth"><a href="#7-weak-auth" class="headerlink" title="7.weak_auth"></a>7.weak_auth</h1><p>登录页面利用burp爆破密码，这里不用下载字典，<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29122883/article/details/112346687">设置下参数</a>即可查找数字密码</p>
+<p>当然先蒙个123456发现进去了</p>
+<h1 id="8-simple-php"><a href="#8-simple-php" class="headerlink" title="8.simple_php"></a>8.simple_php</h1><p>满足条件即得flag</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(2)-1673779632384-3.png" srcset="/img/loading.gif" lazyload></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-is_numeric-function.html">is_numeric()</a>函数用于检测变量是否为数字或数字字符串。</p>
+<p>exit() 函数输出一条消息，并退出当前脚本。该函数是 <a target="_blank" rel="noopener" href="https://www.runoob.com/php/func-misc-die.html">die()</a> 函数的别名。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43836806/article/details/107340486">强相等和弱相等和is_number绕过</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/information/php%20%E5%BC%B1%E7%AD%89%E4%BA%8E%E9%97%AE%E9%A2%98">弱类型</a></p>
+<h1 id="9-command-execution"><a href="#9-command-execution" class="headerlink" title="9.command_execution"></a>9.command_execution</h1><p>先试试，ping本地，ping 127.0.0.1发现可以ping通。<br>127.0.0.1 &amp;&amp; ls 发现可以执行（注意格式有空格）</p>
+<p>然后我们用find命令找到所有的txt文本，再用cat打开flag.txt即可。<br>127.0.0.1 &amp;&amp; find &#x2F; -name “*.txt”<br>127.0.0.1 &amp;&amp; cat &#x2F;home&#x2F;flag.txt</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(3)-1673782947137-5.png" srcset="/img/loading.gif" lazyload></p>
+<p><a target="_blank" rel="noopener" href="https://www.freesion.com/article/71711425298/">ping命令</a></p>
+
                 
               </div>
             
