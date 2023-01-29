@@ -16,37 +16,37 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.view_source右键好像不管用了。 使用F12或ctrl+u或在url前添加view-source:查看 2.robots打开网站，手动进入&#x2F;robots.txt，提示f1ag_1s_h3re.php，然后再打开&#x2F;f1ag_1s_h3re.php即可找到flag。 robots协议是网站跟爬虫间的协议 ，用简单直接的txt格式文本方式告诉对应的爬虫被允许的权限，一般站">
+    <meta name="description" content="level0首先使用checksec检查文件保护机制，是多少位的程序。64位程序，栈不能执行（checksec  exp）  丢进64位ida，f5查看伪代码， 输出字符串helloWord之后执行vulnerable_function()函数，没有与用户交互。  进入vulnerable_function函数，通过伪代码分析逻辑，发现了栈溢出漏洞。  发现buf数组只有0x80字节，但是read">
 <meta property="og:type" content="article">
-<meta property="og:title" content="攻防世界web">
-<meta property="og:url" content="http://example.com/2023/01/15/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb/index.html">
+<meta property="og:title" content="寒假pwn第二周">
+<meta property="og:url" content="http://example.com/2023/01/29/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%BA%8C%E5%91%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.view_source右键好像不管用了。 使用F12或ctrl+u或在url前添加view-source:查看 2.robots打开网站，手动进入&#x2F;robots.txt，提示f1ag_1s_h3re.php，然后再打开&#x2F;f1ag_1s_h3re.php即可找到flag。 robots协议是网站跟爬虫间的协议 ，用简单直接的txt格式文本方式告诉对应的爬虫被允许的权限，一般站">
+<meta property="og:description" content="level0首先使用checksec检查文件保护机制，是多少位的程序。64位程序，栈不能执行（checksec  exp）  丢进64位ida，f5查看伪代码， 输出字符串helloWord之后执行vulnerable_function()函数，没有与用户交互。  进入vulnerable_function函数，通过伪代码分析逻辑，发现了栈溢出漏洞。  发现buf数组只有0x80字节，但是read">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image-1673779494364-1.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(2)-1673779632384-3.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(3)-1673782947137-5.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(5)-1673838048659-9.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(6)-1673838204082-11.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(4)-1673837542615-7.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(13).png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(12).png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(14).png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(9).png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(10).png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(11)-1673845698856-18.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(8).png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image%20(7).png">
-<meta property="article:published_time" content="2023-01-15T07:24:01.000Z">
-<meta property="article:modified_time" content="2023-01-16T05:41:52.952Z">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674954050530-3b6f34dd-4d91-4a32-bb4d-71bd28ea59a5.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674971050088-a0244477-daf0-46b1-966b-2a9ff1503dcc.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674971134975-bbc364b1-0053-4fb3-92d1-8d15a69e10d1.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674971167521-2e21d25b-7dd6-4e2a-9158-78504e1e3021.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674970572283-7c78acee-b94e-450d-abab-179545d60723.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674971513761-13407fe0-be41-4d48-be56-e20f6b612b4c.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674971937320-60276974-a283-474a-a517-6f088e3801f8.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674971871535-9fe94f6a-3280-4855-85cf-7568efff5345.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674971831576-593233dc-4207-4b21-b0f5-2b13179896ee.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674972075385-cfe24929-4950-43f9-a7dc-91300db7f85b.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674972610246-a66b867e-92f4-4cff-99a7-cf002b145f18.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674972905462-7023fabe-6c2e-43a7-871b-1f05b161b7b6.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674973008182-2163b201-23b8-460c-bd46-4dea1f9b92e4.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674973067543-26dcd3eb-3ce7-4c62-96e5-90daff2bc59a.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674973360705-52e7ab45-8b58-44d2-b1be-de73d9f33378.png">
+<meta property="article:published_time" content="2023-01-29T06:28:23.000Z">
+<meta property="article:modified_time" content="2023-01-29T06:29:09.484Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="攻防世界">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/imgs/$%7Bfiilename%7D/Image-1673779494364-1.png">
+<meta name="twitter:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674954050530-3b6f34dd-4d91-4a32-bb4d-71bd28ea59a5.png">
   
   
   
-  <title>攻防世界web - Hexo</title>
+  <title>寒假pwn第二周 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -229,7 +229,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="攻防世界web"></span>
+            <span id="subtitle" data-typed-text="寒假pwn第二周"></span>
           
         </div>
 
@@ -240,8 +240,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-15 15:24" pubdate>
-          2023年1月15日 下午
+        <time datetime="2023-01-29 14:28" pubdate>
+          2023年1月29日 下午
         </time>
       </span>
     
@@ -253,7 +253,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2k字
+          1.3k字
         
       </span>
     
@@ -265,7 +265,7 @@
         
         
           <!-- compatible with older versions-->
-          17分钟
+          11分钟
         
       </span>
     
@@ -312,12 +312,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">攻防世界web</h1>
+            <h1 style="display: none">寒假pwn第二周</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年1月16日 下午
+                    本文最后更新于：2023年1月29日 下午
                   
                 
               </p>
@@ -325,64 +325,47 @@
             
               <div class="markdown-body">
                 
-                <h1 id="1-view-source"><a href="#1-view-source" class="headerlink" title="1.view_source"></a>1.view_source</h1><p>右键好像不管用了。</p>
-<p>使用F12或ctrl+u或在url前添加view-source:查看</p>
-<h1 id="2-robots"><a href="#2-robots" class="headerlink" title="2.robots"></a>2.robots</h1><p>打开网站，手动进入&#x2F;robots.txt，提示f1ag_1s_h3re.php，然后再打开&#x2F;f1ag_1s_h3re.php即可找到flag。</p>
-<p>robots协议是网站跟爬虫间的协议 ，用简单直接的txt格式文本方式告诉对应的爬虫被允许的权限，一般站点根目录下都会放置robots.txt，爬虫爬取前会检查这个文件。</p>
-<h1 id="3-backup"><a href="#3-backup" class="headerlink" title="3.backup"></a>3.backup</h1><p>打开发现：你知道index.php的备份文件名吗？&#x2F;index.php.bak即可下载带有flag的php文件</p>
-<p>常见的备份文件后缀名为.bak</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/akdjfhx/article/details/126454090">https://blog.csdn.net/akdjfhx/article/details/126454090</a></p>
-<h1 id="4-cookie"><a href="#4-cookie" class="headerlink" title="4.cookie"></a>4.cookie</h1><p>1.进入&#x2F;cookie.php然后查看http回响</p>
-<p><a target="_blank" rel="noopener" href="http://tnblog.net/18328907536/article/details/6567">http://tnblog.net/18328907536/article/details/6567</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.360doc.com/content/22/0611/11/4703094_1035569390.shtml">http://www.360doc.com/content/22/0611/11/4703094_1035569390.shtml</a></p>
-<p>2.用burp查看</p>
-<p>cookie 存储在客户端： cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。因此，服务端脚本就可以读、写存储在客户端的cookie的值。</p>
-<h1 id="5-disabled-button"><a href="#5-disabled-button" class="headerlink" title="5.disabled_button"></a>5.disabled_button</h1><p>查看源代码，发现disable使flag不能点击然后右键edit HTML删除点击箭头然后flag可以点击</p>
-<p>elements的编辑功能</p>
-<h1 id="6-get-post"><a href="#6-get-post" class="headerlink" title="6.get_post"></a>6.get_post</h1><p>get和post方式提交变量</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image-1673779494364-1.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="7-weak-auth"><a href="#7-weak-auth" class="headerlink" title="7.weak_auth"></a>7.weak_auth</h1><p>登录页面利用burp爆破密码，这里不用下载字典，<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29122883/article/details/112346687">设置下参数</a>即可查找数字密码</p>
-<p>当然先蒙个123456发现进去了</p>
-<h1 id="8-simple-php"><a href="#8-simple-php" class="headerlink" title="8.simple_php"></a>8.simple_php</h1><p>满足条件即得flag</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(2)-1673779632384-3.png" srcset="/img/loading.gif" lazyload></p>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-is_numeric-function.html">is_numeric()</a>函数用于检测变量是否为数字或数字字符串。</p>
-<p>exit() 函数输出一条消息，并退出当前脚本。该函数是 <a target="_blank" rel="noopener" href="https://www.runoob.com/php/func-misc-die.html">die()</a> 函数的别名。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43836806/article/details/107340486">强相等和弱相等和is_number绕过</a></p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/information/php%20%E5%BC%B1%E7%AD%89%E4%BA%8E%E9%97%AE%E9%A2%98">弱类型</a></p>
-<h1 id="9-command-execution"><a href="#9-command-execution" class="headerlink" title="9.command_execution"></a>9.command_execution</h1><p>先试试，ping本地，ping 127.0.0.1发现可以ping通。<br>127.0.0.1 &amp;&amp; ls 发现可以执行（注意格式有空格）</p>
-<p>然后我们用find命令找到所有的txt文本，再用cat打开flag.txt即可。<br>127.0.0.1 &amp;&amp; find &#x2F; -name “*.txt”<br>127.0.0.1 &amp;&amp; cat &#x2F;home&#x2F;flag.txt</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(3)-1673782947137-5.png" srcset="/img/loading.gif" lazyload></p>
-<p><a target="_blank" rel="noopener" href="https://www.freesion.com/article/71711425298/">ping命令</a></p>
-<h1 id="10-xff-referer"><a href="#10-xff-referer" class="headerlink" title="10.xff_referer"></a>10.xff_referer</h1><p>burp抓包后放包，在目标里发送至repeater，添加伪造X-Forwarded-For:123.123.123.123  如图</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(5)-1673838048659-9.png" srcset="/img/loading.gif" lazyload></p>
-<p>看到回响，添加Referer:<a target="_blank" rel="noopener" href="https://www.google.com发送得到flag/">https://www.google.com发送得到flag</a></p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(6)-1673838204082-11.png" srcset="/img/loading.gif" lazyload></p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2038008">burp抓包</a></p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(4)-1673837542615-7.png" srcset="/img/loading.gif" lazyload></p>
-<p>Referer是<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=HTTP%E5%8D%8F%E8%AE%AE&spm=1001.2101.3001.7020">HTTP协议</a>中的一个请求报头，用于告知服务器用户的来源页面</p>
-<h1 id="11-simple-js"><a href="#11-simple-js" class="headerlink" title="11.simple_js"></a>11.simple_js</h1><p>输入密码进不去，看源代码，发现十六进制字符串，解码后十进制ascil码转换得flag</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(13).png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(12).png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(14).png" srcset="/img/loading.gif" lazyload></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41617034/article/details/91490695?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167384744016800188542245%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167384744016800188542245&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-3-91490695-null-null.142%5Ev71%5Eone_line,201%5Ev4%5Eadd_ask&utm_term=simple_js&spm=1018.2226.3001.4187">js前端分析</a></p>
-<h1 id="12-baby-web"><a href="#12-baby-web" class="headerlink" title="12.baby_web"></a>12.baby_web</h1><p>题目说想想初始页面是什么，看到打开是1.php，手动删除也不行，这里用burp抓包和第十题一样删除1.php后看到回响flag</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(9).png" srcset="/img/loading.gif" lazyload></p>
-<p>看了一篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53325209/article/details/123771111?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167384185216800182169641%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167384185216800182169641&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-123771111-null-null.142%5Ev71%5Eone_line,201%5Ev4%5Eadd_ask&utm_term=baby_web&spm=1018.2226.3001.4187">大佬文章</a>，在网页也可以抓包看回响</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(10).png" srcset="/img/loading.gif" lazyload></p>
-<p>burp和开发者工具的编辑抓包得回响的功能</p>
-<h1 id="13-Training-WWW-Robots"><a href="#13-Training-WWW-Robots" class="headerlink" title="13.Training-WWW-Robots"></a>13.Training-WWW-Robots</h1><p>打开网站，手动进入&#x2F;robots.txt，提示f10g.php，然后再打开&#x2F;f10g.php即可找到flag</p>
-<h1 id="14-ics-06"><a href="#14-ics-06" class="headerlink" title="14.ics-06"></a>14.ics-06</h1><p>进入页面，发现除了点击“报表中心”，其他均无反应。尝试改变日期范围，无果。改变思路，看到URL链接中id&#x3D;1，猜想可能存在爆破的可能，故使用burpsuite对id的参数值进行爆破。</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(11)-1673845698856-18.png" srcset="/img/loading.gif" lazyload></p>
-<p>改为id&#x3D;2333或者查看回响得到flag</p>
-<p>为什么用burp爆破呢，我也是查看了一位<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46267075/article/details/124994385?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167384446116782425673316%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167384446116782425673316&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-1-124994385-null-null.142%5Ev71%5Eone_line,201%5Ev4%5Eadd_ask&utm_term=ics-06&spm=1018.2226.3001.4187">大佬</a>，思路可以记一下</p>
-<h1 id="15-PHP2"><a href="#15-PHP2" class="headerlink" title="15. PHP2"></a>15. PHP2</h1><p>御剑扫描出来index.php,打开什么也没有，用phps</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(8).png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/Image%20(7).png" srcset="/img/loading.gif" lazyload></p>
-<p>这里的绕过可以参看这位<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_61835841/article/details/124279058?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167383943616800217016672%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167383943616800217016672&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-124279058-null-null.142%5Ev71%5Eone_line,201%5Ev4%5Eadd_ask&utm_term=%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E9%AB%98%E6%89%8B%E8%BF%9B%E9%98%B6&spm=1018.2226.3001.4187">大佬</a>，我一个萌新就不再赘余了</p>
-<p>php备份文件：后缀为php~或者index.php.bak</p>
-<p>php的源代码文件：后缀为phps</p>
-<p>这里的PHP代码&#x3D;&#x3D;还是弱相等</p>
-<p>urlencode()函数原理就是首先把中文字符转换为十六进制，然后在每个字符前面加一个标识符%。 urldecode()函数与urlencode()函数原理相反，用于解码已编码的 URL 字符串，其原理就是把十六进制字符串转换为中文字符，参考这位大佬<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34106122/article/details/92415892?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165036049816780261978644%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165036049816780261978644&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-92415892.142%5Ev9%5Econtrol,157%5Ev4%5Econtrol&utm_term=urldecode&spm=1018.2226.3001.4187">博客</a></p>
+                <h1 id="level0"><a href="#level0" class="headerlink" title="level0"></a>level0</h1><p>首先使用checksec检查文件保护机制，是多少位的程序。64位程序，栈不能执行（<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/755e52d48a77">checksec</a>  <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2129106">exp</a>）</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674954050530-3b6f34dd-4d91-4a32-bb4d-71bd28ea59a5.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>丢进64位ida，f5查看伪代码，</p>
+<p>输出字符串helloWord之后执行vulnerable_function()函数，没有与用户交互。</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674971050088-a0244477-daf0-46b1-966b-2a9ff1503dcc.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>进入vulnerable_function函数，通过伪代码分析逻辑，发现了栈溢出漏洞。</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674971134975-bbc364b1-0053-4fb3-92d1-8d15a69e10d1.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>发现buf数组只有0x80字节，但是read函数从中读了0x200个。</p>
+<p>或许咱们能够进行溢出，覆盖掉返回地址，劫持程序执行流，执行咱们想执行的方法。一般咱们的目的是去执行 system(“&#x2F;bin&#x2F;sh”)。</p>
+<p>发现可疑函数，拥有system(“&#x2F;bin&#x2F;sh”)</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674971167521-2e21d25b-7dd6-4e2a-9158-78504e1e3021.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>所以我们能够把返回地址改为callsystem的地址，从而实现漏洞的利用，获取后门后，get了shell，直接ls+cat flag即可获得</p>
+<p>仿照网上的exp写了一遍</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674970572283-7c78acee-b94e-450d-abab-179545d60723.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="level2"><a href="#level2" class="headerlink" title="level2"></a>level2</h1><p><img src="/./../imgs/$%7Bfiilename%7D/1674971513761-13407fe0-be41-4d48-be56-e20f6b612b4c.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>丢进32位ida，shift+f12进字符串窗口，看看有没有可以直接利用的字符串。<br>发现有system和&#x2F;bin&#x2F;sh可以利用，猜测需要<strong>溢出覆盖system函数参数，使其变成system(“&#x2F;bin&#x2F;sh”)</strong> 来获取shell</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674971937320-60276974-a283-474a-a517-6f088e3801f8.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>看main函数，点进去进vulnerable_function函数看看</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674971871535-9fe94f6a-3280-4855-85cf-7568efff5345.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674971831576-593233dc-4207-4b21-b0f5-2b13179896ee.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674972075385-cfe24929-4950-43f9-a7dc-91300db7f85b.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>发现buf长度为0x88，但read了0x100，且并没有输入限制，存在溢出漏洞</p>
+<p>思路：填充字符使buf溢出<br>溢出后将read函数的返回地址覆盖为system的地址 ，进入我们构造的伪栈帧<br>覆盖system的参数，使其变为”&#x2F;bin&#x2F;sh”<br>拿到shell，然后寻找flag</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674972610246-a66b867e-92f4-4cff-99a7-cf002b145f18.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="CGfsb"><a href="#CGfsb" class="headerlink" title="CGfsb"></a>CGfsb</h1><p>依旧是先放到linux里扫一下，看看文件属性及开启的保护措施<br>开了canary和nx，即没法直接覆盖返回地址和使用shellcode，题目里提示了prinf的作用，可以着重看看prinf</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674972905462-7023fabe-6c2e-43a7-871b-1f05b161b7b6.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>用32位IDA打开，和上题一样查看字符串发现既有system，也有cat flag</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674973008182-2163b201-23b8-460c-bd46-4dea1f9b92e4.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>看主函数伪代码</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674973067543-26dcd3eb-3ce7-4c62-96e5-90daff2bc59a.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>汇编学的少看的不太懂，上网搜的大神的讲解：</p>
+<p>这个程序流程就是让你输入你的名字和要留下的信息，它就会说你好，并用printf输出你留下的信息。</p>
+<p>如果pwnme的值为8，那么判断成立就会直接执行system(“cat flag”)拿到flag，否则输出Thank you。</p>
+<p>第23行的这个printf不是正确的用法，会产生格式化字符串漏洞</p>
+<p>printf正确用法是printf(“格式化字符串，……” , 参量，……)，比如输出一个字符串a应该用printf(“%s”,a)，但如果写成了printf(a), 就会出现格式化字符串漏洞 ，如果a是”%x”，那么printf(a)就会输出它后面的内存中的数据 。</p>
+<p>所以思路：</p>
+<p>第一次运行程序，name随便输，在输入message时利用%x计算输入位置偏移</p>
+<p>第二次运行程序，name随便输，在输入message时，先输入pwnme的地址</p>
+<p>利用 %偏移$n 改变pwnme的值为8</p>
+<p>拿到flag</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1674973360705-52e7ab45-8b58-44d2-b1be-de73d9f33378.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 
                 
               </div>
@@ -392,13 +375,6 @@
               <div class="post-metas my-3">
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/">#攻防世界</a>
-      
-    </div>
-  
 </div>
 
 
@@ -407,8 +383,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>攻防世界web</div>
-      <div>http://example.com/2023/01/15/攻防世界web/</div>
+      <div>寒假pwn第二周</div>
+      <div>http://example.com/2023/01/29/寒假pwn第二周/</div>
     </div>
     <div class="license-meta">
       
@@ -420,13 +396,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月15日</div>
+          <div>2023年1月29日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年1月16日</div>
+          <div>2023年1月29日</div>
         </div>
       
       
@@ -457,18 +433,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/01/29/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%BA%8C%E5%91%A8/" title="寒假pwn第二周">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">寒假pwn第二周</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/01/14/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%80%E5%91%A8/" title="寒假pwn第一周">
-                        <span class="hidden-mobile">寒假pwn第一周</span>
+                      <a href="/2023/01/15/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb/" title="攻防世界web">
+                        <span class="hidden-mobile">攻防世界web</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

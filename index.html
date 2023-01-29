@@ -242,6 +242,39 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2023/01/29/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%BA%8C%E5%91%A8/" target="_self">
+          寒假pwn第二周
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/01/29/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%BA%8C%E5%91%A8/" target="_self">
+        <div>
+          level0首先使用checksec检查文件保护机制，是多少位的程序。64位程序，栈不能执行（checksec  exp）  丢进64位ida，f5查看伪代码， 输出字符串helloWord之后执行vulnerable_function()函数，没有与用户交互。  进入vulnerable_function函数，通过伪代码分析逻辑，发现了栈溢出漏洞。  发现buf数组只有0x80字节，但是read
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-01-29 14:28" pubdate>
+              2023-01-29
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2023/01/15/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb/" target="_self">
           攻防世界web
         </a>
