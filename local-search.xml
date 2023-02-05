@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>寒假pwn第三周</title>
+    <link href="/2023/02/05/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%89%E5%91%A8/"/>
+    <url>/2023/02/05/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%89%E5%91%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="guess-num"><a href="#guess-num" class="headerlink" title="guess_num"></a>guess_num</h1><p>先check下</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675595501418-31ddcfc7-7af5-4325-8fe3-49b2b77029aa.png" alt="img"></p><p>拖进去反汇编</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675595479745-7570befe-1f2f-4739-b84b-380a95be03bd.png" alt="img"></p><p>查看字符串</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675595238591-971158b1-3ab9-4a17-b5d0-f6f0e14139b6.png" alt="img"></p><p>看main的伪代码，“rand() % 6 + 1”的含义就是获取1~6的伪随机数。</p><p>可以看出这个猜数游戏会进行十个回合，如果十个回合都能猜对数的话，就可以调用sub_C3E函数，而这个sub_C3E函数中就有system(“cat flag”)</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675595603152-55228bd2-4e98-4e8c-aae7-e7e5ec35e1e7.png" alt="img"></p><p>由于开启了栈保护，所以没法直接覆盖返回地址来进入sub_C3E，但是输入name时，用了gets，利用gets栈溢出，尝试覆盖掉seed，使种子值已知，这样就能得到rand的值，之后只要循环输入十次就能拿到flag。</p><p>解题思路：</p><p>（1）输入name时，通过gets溢出，覆盖掉seed的值，使seed已知</p><p>（2）写脚本，或者手动输入rand()函数产生的前10个值</p><p>（3）到达sub_C3E拿到flag</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675595899490-9877e181-0031-48da-bf8e-fa5703486574.png" alt="img"></p><h1 id="int-overflow"><a href="#int-overflow" class="headerlink" title="int_overflow"></a>int_overflow</h1><p>先check下</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675596437467-2d0f315c-3a9c-4526-9c81-45236f90ba4b.png" alt="img"></p><p>然后丢进IDA32，看看字符串窗口，看有没有可以利用的字符串，发现system和cat flag，且存在一些需要留意的高危函数，strcpy和read。</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675596510130-c785ab33-7a0e-4cd6-b20c-6103e5533347.png" alt="img"></p><p>点进cat flag发现有一个what_is_this函数直接用了system(“cat flag”)，也就是说只要我们想办法调用这个函数，就可以直接拿到flag。</p><p>接下来需要找漏洞，最好是可以直接覆盖一个返回地址，覆盖成what_is_this函数的地址。</p><p>main里没有什么可疑点，点进login函数，发现密码给的长度很大，read可以读0x199字节，十进制就是409，谁会用这么长的密码？这个长度很可疑，猜测从这里入手。</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675596592748-e9c162ff-7b67-4abc-b718-a8ee4935b70d.png" alt="img"></p><p>再进入check_passwd看看</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675596619458-904e8d38-125b-48b6-ae85-47261247d4ac.png" alt="img"></p><p>发现限制了密码长度，要求密码长度在(3,8]内，并且还发现有个strcpy(&amp;dest, s)，这个函数里的s就是密码的字符串，dest长度0x14，所以s长度远大于dest，这就会导致栈溢出。</p><p>所以思路：</p><p>（1）正常输入到输入密码的那一步</p><p>（2）绕过密码的长度检测，让dest溢出</p><p>（3）覆盖返回地址，使之变成what_is_this函数的地址</p><p>（4）拿到flag</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675598324898-aa524e52-5576-4802-8285-446850703f7c.png" alt="img"></p><h1 id="cgpwn2"><a href="#cgpwn2" class="headerlink" title="cgpwn2"></a>cgpwn2</h1><p><img src="/./../imgs/$%7Bfiilename%7D/1675597195485-083b5936-0d62-4ede-958a-724801c81bb8.png" alt="img"></p><p>拖进32位IDA，先看字符串窗口。</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675597251793-04a370b6-8704-48ce-93f6-9a8e1369d3f6.png" alt="img"></p><p>只找到了system，没有cat flag或者&#x2F;bin&#x2F;sh等字符串，再结合题目描述的提示“菜鸡认为自己需要一个字符串”，猜测需要自己输入一个&#x2F;bin&#x2F;sh ，然后把它当参数传system函数里，拿到shell。</p><p>然后看伪代码，找漏洞，main里没什么可疑的，但是调用了一个hello函数，点进去看看</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675597269654-64e92129-8086-4bbe-9d17-9ca0c904705b.png"></p><p> 点进hello看看<img src="/./../imgs/$%7Bfiilename%7D/1675597293427-005c2393-553d-40e1-9d02-cecc06d78873.png" alt="img"></p><p>发现了一个会导致溢出的gets（在程序的最下方）</p><p>运行程序发现是让我们输入两次，第一次输入名字，第二次gets了你留下的讯息。</p><p>所以思路：</p><p>由于只开启了NX，那么name的地址是不变的，记下name地址，输入’&#x2F;bin&#x2F;sh’到name里</p><p>利用gets溢出，覆盖返回地址为system的函数地址</p><p>把name作为参数传给system，构成system(“&#x2F;bin&#x2F;sh”)</p><p>ls看文件，cat flag拿到flag</p><p><img src="/./../imgs/$%7Bfiilename%7D/1675597478120-9682d209-1c04-4a74-bba7-f22cc9a19f3c.png" alt="img"></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>寒假pwn第二周</title>
     <link href="/2023/01/29/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%BA%8C%E5%91%A8/"/>
     <url>/2023/01/29/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%BA%8C%E5%91%A8/</url>

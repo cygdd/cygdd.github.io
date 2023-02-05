@@ -16,37 +16,37 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="level0首先使用checksec检查文件保护机制，是多少位的程序。64位程序，栈不能执行（checksec  exp）  丢进64位ida，f5查看伪代码， 输出字符串helloWord之后执行vulnerable_function()函数，没有与用户交互。  进入vulnerable_function函数，通过伪代码分析逻辑，发现了栈溢出漏洞。  发现buf数组只有0x80字节，但是read">
+    <meta name="description" content="guess_num先check下  拖进去反汇编  查看字符串  看main的伪代码，“rand() % 6 + 1”的含义就是获取1~6的伪随机数。 可以看出这个猜数游戏会进行十个回合，如果十个回合都能猜对数的话，就可以调用sub_C3E函数，而这个sub_C3E函数中就有system(“cat flag”)  由于开启了栈保护，所以没法直接覆盖返回地址来进入sub_C3E，但是输入name时，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="寒假pwn第二周">
-<meta property="og:url" content="http://example.com/2023/01/29/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%BA%8C%E5%91%A8/index.html">
+<meta property="og:title" content="寒假pwn第三周">
+<meta property="og:url" content="http://example.com/2023/02/05/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%89%E5%91%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="level0首先使用checksec检查文件保护机制，是多少位的程序。64位程序，栈不能执行（checksec  exp）  丢进64位ida，f5查看伪代码， 输出字符串helloWord之后执行vulnerable_function()函数，没有与用户交互。  进入vulnerable_function函数，通过伪代码分析逻辑，发现了栈溢出漏洞。  发现buf数组只有0x80字节，但是read">
+<meta property="og:description" content="guess_num先check下  拖进去反汇编  查看字符串  看main的伪代码，“rand() % 6 + 1”的含义就是获取1~6的伪随机数。 可以看出这个猜数游戏会进行十个回合，如果十个回合都能猜对数的话，就可以调用sub_C3E函数，而这个sub_C3E函数中就有system(“cat flag”)  由于开启了栈保护，所以没法直接覆盖返回地址来进入sub_C3E，但是输入name时，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674954050530-3b6f34dd-4d91-4a32-bb4d-71bd28ea59a5-1674974676968-31.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674974519330-11eef6cf-807c-43f9-887e-57ed6efbfe2e.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674974541836-4085f14a-732c-4e75-b95e-9c1516ad1623.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674974555091-c3e92ce1-8fa1-4efc-b1c1-0df9278a2198.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674970572283-7c78acee-b94e-450d-abab-179545d60723-1674974676969-36.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674971513761-13407fe0-be41-4d48-be56-e20f6b612b4c.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674971937320-60276974-a283-474a-a517-6f088e3801f8.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674971871535-9fe94f6a-3280-4855-85cf-7568efff5345.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674971831576-593233dc-4207-4b21-b0f5-2b13179896ee.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674972075385-cfe24929-4950-43f9-a7dc-91300db7f85b.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674972610246-a66b867e-92f4-4cff-99a7-cf002b145f18.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674972905462-7023fabe-6c2e-43a7-871b-1f05b161b7b6.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674973008182-2163b201-23b8-460c-bd46-4dea1f9b92e4.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674973067543-26dcd3eb-3ce7-4c62-96e5-90daff2bc59a.png">
-<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674973360705-52e7ab45-8b58-44d2-b1be-de73d9f33378.png">
-<meta property="article:published_time" content="2023-01-29T06:28:23.000Z">
-<meta property="article:modified_time" content="2023-01-29T06:44:49.687Z">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675595501418-31ddcfc7-7af5-4325-8fe3-49b2b77029aa.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675595479745-7570befe-1f2f-4739-b84b-380a95be03bd.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675595238591-971158b1-3ab9-4a17-b5d0-f6f0e14139b6.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675595603152-55228bd2-4e98-4e8c-aae7-e7e5ec35e1e7.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675595899490-9877e181-0031-48da-bf8e-fa5703486574.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675596437467-2d0f315c-3a9c-4526-9c81-45236f90ba4b.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675596510130-c785ab33-7a0e-4cd6-b20c-6103e5533347.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675596592748-e9c162ff-7b67-4abc-b718-a8ee4935b70d.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675596619458-904e8d38-125b-48b6-ae85-47261247d4ac.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675598324898-aa524e52-5576-4802-8285-446850703f7c.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675597195485-083b5936-0d62-4ede-958a-724801c81bb8.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675597251793-04a370b6-8704-48ce-93f6-9a8e1369d3f6.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675597269654-64e92129-8086-4bbe-9d17-9ca0c904705b.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675597293427-005c2393-553d-40e1-9d02-cecc06d78873.png">
+<meta property="og:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675597478120-9682d209-1c04-4a74-bba7-f22cc9a19f3c.png">
+<meta property="article:published_time" content="2023-02-05T11:46:50.000Z">
+<meta property="article:modified_time" content="2023-02-05T11:59:44.873Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/imgs/$%7Bfiilename%7D/1674954050530-3b6f34dd-4d91-4a32-bb4d-71bd28ea59a5-1674974676968-31.png">
+<meta name="twitter:image" content="http://example.com/imgs/$%7Bfiilename%7D/1675595501418-31ddcfc7-7af5-4325-8fe3-49b2b77029aa.png">
   
   
   
-  <title>寒假pwn第二周 - Hexo</title>
+  <title>寒假pwn第三周 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -229,7 +229,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="寒假pwn第二周"></span>
+            <span id="subtitle" data-typed-text="寒假pwn第三周"></span>
           
         </div>
 
@@ -240,8 +240,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-29 14:28" pubdate>
-          2023年1月29日 下午
+        <time datetime="2023-02-05 19:46" pubdate>
+          2023年2月5日 晚上
         </time>
       </span>
     
@@ -312,12 +312,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">寒假pwn第二周</h1>
+            <h1 style="display: none">寒假pwn第三周</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年1月29日 下午
+                    本文最后更新于：2023年2月5日 晚上
                   
                 
               </p>
@@ -325,47 +325,53 @@
             
               <div class="markdown-body">
                 
-                <h1 id="level0"><a href="#level0" class="headerlink" title="level0"></a>level0</h1><p>首先使用checksec检查文件保护机制，是多少位的程序。64位程序，栈不能执行（<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/755e52d48a77">checksec</a>  <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2129106">exp</a>）</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674954050530-3b6f34dd-4d91-4a32-bb4d-71bd28ea59a5-1674974676968-31.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>丢进64位ida，f5查看伪代码，</p>
-<p>输出字符串helloWord之后执行vulnerable_function()函数，没有与用户交互。</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674974519330-11eef6cf-807c-43f9-887e-57ed6efbfe2e.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>进入vulnerable_function函数，通过伪代码分析逻辑，发现了栈溢出漏洞。</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674974541836-4085f14a-732c-4e75-b95e-9c1516ad1623.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>发现buf数组只有0x80字节，但是read函数从中读了0x200个。</p>
-<p>或许咱们能够进行溢出，覆盖掉返回地址，劫持程序执行流，执行咱们想执行的方法。一般咱们的目的是去执行 system(“&#x2F;bin&#x2F;sh”)。</p>
-<p>发现可疑函数，拥有system(“&#x2F;bin&#x2F;sh”)</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674974555091-c3e92ce1-8fa1-4efc-b1c1-0df9278a2198.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>所以我们能够把返回地址改为callsystem的地址，从而实现漏洞的利用，获取后门后，get了shell，直接ls+cat flag即可获得</p>
-<p>仿照网上的exp写了一遍</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674970572283-7c78acee-b94e-450d-abab-179545d60723-1674974676969-36.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h1 id="level2"><a href="#level2" class="headerlink" title="level2"></a>level2</h1><p><img src="/./../imgs/$%7Bfiilename%7D/1674971513761-13407fe0-be41-4d48-be56-e20f6b612b4c.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>丢进32位ida，shift+f12进字符串窗口，看看有没有可以直接利用的字符串。<br>发现有system和&#x2F;bin&#x2F;sh可以利用，猜测需要<strong>溢出覆盖system函数参数，使其变成system(“&#x2F;bin&#x2F;sh”)</strong> 来获取shell</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674971937320-60276974-a283-474a-a517-6f088e3801f8.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>看main函数，点进去进vulnerable_function函数看看</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674971871535-9fe94f6a-3280-4855-85cf-7568efff5345.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674971831576-593233dc-4207-4b21-b0f5-2b13179896ee.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674972075385-cfe24929-4950-43f9-a7dc-91300db7f85b.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>发现buf长度为0x88，但read了0x100，且并没有输入限制，存在溢出漏洞</p>
-<p>思路：填充字符使buf溢出<br>溢出后将read函数的返回地址覆盖为system的地址 ，进入我们构造的伪栈帧<br>覆盖system的参数，使其变为”&#x2F;bin&#x2F;sh”<br>拿到shell，然后寻找flag</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674972610246-a66b867e-92f4-4cff-99a7-cf002b145f18.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h1 id="CGfsb"><a href="#CGfsb" class="headerlink" title="CGfsb"></a>CGfsb</h1><p>依旧是先放到linux里扫一下，看看文件属性及开启的保护措施<br>开了canary和nx，即没法直接覆盖返回地址和使用shellcode，题目里提示了prinf的作用，可以着重看看prinf</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674972905462-7023fabe-6c2e-43a7-871b-1f05b161b7b6.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>用32位IDA打开，和上题一样查看字符串发现既有system，也有cat flag</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674973008182-2163b201-23b8-460c-bd46-4dea1f9b92e4.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>看主函数伪代码</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674973067543-26dcd3eb-3ce7-4c62-96e5-90daff2bc59a.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>汇编学的少看的不太懂，上网搜的大神的讲解：</p>
-<p>这个程序流程就是让你输入你的名字和要留下的信息，它就会说你好，并用printf输出你留下的信息。</p>
-<p>如果pwnme的值为8，那么判断成立就会直接执行system(“cat flag”)拿到flag，否则输出Thank you。</p>
-<p>第23行的这个printf不是正确的用法，会产生格式化字符串漏洞</p>
-<p>printf正确用法是printf(“格式化字符串，……” , 参量，……)，比如输出一个字符串a应该用printf(“%s”,a)，但如果写成了printf(a), 就会出现格式化字符串漏洞 ，如果a是”%x”，那么printf(a)就会输出它后面的内存中的数据 。</p>
+                <h1 id="guess-num"><a href="#guess-num" class="headerlink" title="guess_num"></a>guess_num</h1><p>先check下</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675595501418-31ddcfc7-7af5-4325-8fe3-49b2b77029aa.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>拖进去反汇编</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675595479745-7570befe-1f2f-4739-b84b-380a95be03bd.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>查看字符串</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675595238591-971158b1-3ab9-4a17-b5d0-f6f0e14139b6.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>看main的伪代码，“rand() % 6 + 1”的含义就是获取1~6的伪随机数。</p>
+<p>可以看出这个猜数游戏会进行十个回合，如果十个回合都能猜对数的话，就可以调用sub_C3E函数，而这个sub_C3E函数中就有system(“cat flag”)</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675595603152-55228bd2-4e98-4e8c-aae7-e7e5ec35e1e7.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>由于开启了栈保护，所以没法直接覆盖返回地址来进入sub_C3E，但是输入name时，用了gets，利用gets栈溢出，尝试覆盖掉seed，使种子值已知，这样就能得到rand的值，之后只要循环输入十次就能拿到flag。</p>
+<p>解题思路：</p>
+<p>（1）输入name时，通过gets溢出，覆盖掉seed的值，使seed已知</p>
+<p>（2）写脚本，或者手动输入rand()函数产生的前10个值</p>
+<p>（3）到达sub_C3E拿到flag</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675595899490-9877e181-0031-48da-bf8e-fa5703486574.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="int-overflow"><a href="#int-overflow" class="headerlink" title="int_overflow"></a>int_overflow</h1><p>先check下</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675596437467-2d0f315c-3a9c-4526-9c81-45236f90ba4b.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>然后丢进IDA32，看看字符串窗口，看有没有可以利用的字符串，发现system和cat flag，且存在一些需要留意的高危函数，strcpy和read。</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675596510130-c785ab33-7a0e-4cd6-b20c-6103e5533347.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>点进cat flag发现有一个what_is_this函数直接用了system(“cat flag”)，也就是说只要我们想办法调用这个函数，就可以直接拿到flag。</p>
+<p>接下来需要找漏洞，最好是可以直接覆盖一个返回地址，覆盖成what_is_this函数的地址。</p>
+<p>main里没有什么可疑点，点进login函数，发现密码给的长度很大，read可以读0x199字节，十进制就是409，谁会用这么长的密码？这个长度很可疑，猜测从这里入手。</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675596592748-e9c162ff-7b67-4abc-b718-a8ee4935b70d.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>再进入check_passwd看看</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675596619458-904e8d38-125b-48b6-ae85-47261247d4ac.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>发现限制了密码长度，要求密码长度在(3,8]内，并且还发现有个strcpy(&amp;dest, s)，这个函数里的s就是密码的字符串，dest长度0x14，所以s长度远大于dest，这就会导致栈溢出。</p>
 <p>所以思路：</p>
-<p>第一次运行程序，name随便输，在输入message时利用%x计算输入位置偏移</p>
-<p>第二次运行程序，name随便输，在输入message时，先输入pwnme的地址</p>
-<p>利用 %偏移$n 改变pwnme的值为8</p>
-<p>拿到flag</p>
-<p><img src="/./../imgs/$%7Bfiilename%7D/1674973360705-52e7ab45-8b58-44d2-b1be-de73d9f33378.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>（1）正常输入到输入密码的那一步</p>
+<p>（2）绕过密码的长度检测，让dest溢出</p>
+<p>（3）覆盖返回地址，使之变成what_is_this函数的地址</p>
+<p>（4）拿到flag</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675598324898-aa524e52-5576-4802-8285-446850703f7c.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="cgpwn2"><a href="#cgpwn2" class="headerlink" title="cgpwn2"></a>cgpwn2</h1><p><img src="/./../imgs/$%7Bfiilename%7D/1675597195485-083b5936-0d62-4ede-958a-724801c81bb8.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>拖进32位IDA，先看字符串窗口。</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675597251793-04a370b6-8704-48ce-93f6-9a8e1369d3f6.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>只找到了system，没有cat flag或者&#x2F;bin&#x2F;sh等字符串，再结合题目描述的提示“菜鸡认为自己需要一个字符串”，猜测需要自己输入一个&#x2F;bin&#x2F;sh ，然后把它当参数传system函数里，拿到shell。</p>
+<p>然后看伪代码，找漏洞，main里没什么可疑的，但是调用了一个hello函数，点进去看看</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675597269654-64e92129-8086-4bbe-9d17-9ca0c904705b.png" srcset="/img/loading.gif" lazyload></p>
+<p> 点进hello看看<img src="/./../imgs/$%7Bfiilename%7D/1675597293427-005c2393-553d-40e1-9d02-cecc06d78873.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>发现了一个会导致溢出的gets（在程序的最下方）</p>
+<p>运行程序发现是让我们输入两次，第一次输入名字，第二次gets了你留下的讯息。</p>
+<p>所以思路：</p>
+<p>由于只开启了NX，那么name的地址是不变的，记下name地址，输入’&#x2F;bin&#x2F;sh’到name里</p>
+<p>利用gets溢出，覆盖返回地址为system的函数地址</p>
+<p>把name作为参数传给system，构成system(“&#x2F;bin&#x2F;sh”)</p>
+<p>ls看文件，cat flag拿到flag</p>
+<p><img src="/./../imgs/$%7Bfiilename%7D/1675597478120-9682d209-1c04-4a74-bba7-f22cc9a19f3c.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 
                 
               </div>
@@ -383,8 +389,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>寒假pwn第二周</div>
-      <div>http://example.com/2023/01/29/寒假pwn第二周/</div>
+      <div>寒假pwn第三周</div>
+      <div>http://example.com/2023/02/05/寒假pwn第三周/</div>
     </div>
     <div class="license-meta">
       
@@ -396,13 +402,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月29日</div>
+          <div>2023年2月5日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年1月29日</div>
+          <div>2023年2月5日</div>
         </div>
       
       
@@ -433,18 +439,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/02/05/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%B8%89%E5%91%A8/" title="寒假pwn第三周">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">寒假pwn第三周</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/01/15/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb/" title="攻防世界web">
-                        <span class="hidden-mobile">攻防世界web</span>
+                      <a href="/2023/01/29/%E5%AF%92%E5%81%87pwn%E7%AC%AC%E4%BA%8C%E5%91%A8/" title="寒假pwn第二周">
+                        <span class="hidden-mobile">寒假pwn第二周</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
